@@ -2,32 +2,29 @@ head.ready(function() {
 
     $('.b1 form').validate();
     $('.b2 form').validate();
-    $('.other-item.i1 form').validate();
-    $('.other-item.i2 form').validate();
-    $('.other-item.i3 form').validate();
 
     $(window).scroll(function () {
         if ( $(this).scrollTop() > 200 && !$('.scrollMenu').hasClass('open') ) {
-            $('.top-b-scroll').addClass('open');
-            $('.top-b-scroll').slideDown();
+            $('.scrollMenu').addClass('open');
+            $('.scrollMenu').slideDown();
         } else if ( $(this).scrollTop() <= 200 ) {
-            $('.top-b-scroll').removeClass('open');
-            $('.top-b-scroll').slideUp();
+            $('.scrollMenu').removeClass('open');
+            $('.scrollMenu').slideUp();
         }
     });
 
 
-    $('.top-menu li a').on('click',function (e) {
+    $('.js-nav li a').on('click',function (e) {
         e.preventDefault();
 
-        $('.top-menu li').removeClass('is-active');
+        $('.js-nav li').removeClass('is-active');
         $(this).parent('li').addClass('is-active');
 
         var target = this.hash,
             $target = $(target);
 
         $('html, body').stop().animate({
-            'scrollTop': $target.offset().top - 60
+            'scrollTop': $target.offset().top - 70
         }, 500, 'swing', function () {
             // window.location.hash = target;
         });
